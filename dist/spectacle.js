@@ -55403,6 +55403,61 @@ Prism.languages.elixir.string.forEach(function(o) {
 
 /***/ }),
 
+/***/ "./node_modules/prismjs/components/prism-elm.js":
+/*!******************************************************!*\
+  !*** ./node_modules/prismjs/components/prism-elm.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Prism.languages.elm = {
+	comment: /--.*|{-[\s\S]*?-}/,
+	char: {
+		pattern: /'(?:[^\\'\r\n]|\\(?:[abfnrtv\\']|\d+|x[0-9a-fA-F]+))'/,
+		greedy: true
+	},
+	string: [
+		{
+			// Multiline strings are wrapped in triple ". Quotes may appear unescaped.
+			pattern: /"""[\s\S]*?"""/,
+			greedy: true
+		},
+		{
+			pattern: /"(?:[^\\"\r\n]|\\(?:[abfnrtv\\"]|\d+|x[0-9a-fA-F]+))*"/,
+			greedy: true
+		}
+	],
+	import_statement: {
+		// The imported or hidden names are not included in this import
+		// statement. This is because we want to highlight those exactly like
+		// we do for the names in the program.
+		pattern: /^\s*import\s+[A-Z]\w*(?:\.[A-Z]\w*)*(?:\s+as\s+([A-Z]\w*)(?:\.[A-Z]\w*)*)?(?:\s+exposing\s+)?/m,
+		inside: {
+			keyword: /\b(?:import|as|exposing)\b/
+		}
+	},
+	keyword: /\b(?:alias|as|case|else|exposing|if|in|infixl|infixr|let|module|of|then|type)\b/,
+	// These are builtin variables only. Constructors are highlighted later as a constant.
+	builtin: /\b(?:abs|acos|always|asin|atan|atan2|ceiling|clamp|compare|cos|curry|degrees|e|flip|floor|fromPolar|identity|isInfinite|isNaN|logBase|max|min|negate|never|not|pi|radians|rem|round|sin|sqrt|tan|toFloat|toPolar|toString|truncate|turns|uncurry|xor)\b/,
+	// decimal integers and floating point numbers | hexadecimal integers
+	number: /\b(?:\d+(?:\.\d+)?(?:e[+-]?\d+)?|0x[0-9a-f]+)\b/i,
+	// Most of this is needed because of the meaning of a single '.'.
+	// If it stands alone freely, it is the function composition.
+	// It may also be a separator between a module name and an identifier => no
+	// operator. If it comes together with other special characters it is an
+	// operator too.
+	// Valid operator characters in 0.18: +-/*=.$<>:&|^?%#@~!
+	// Ref: https://groups.google.com/forum/#!msg/elm-dev/0AHSnDdkSkQ/E0SVU70JEQAJ
+	operator: /\s\.\s|[+\-/*=.$<>:&|^?%#@~!]{2,}|[+\-/*=$<>:&|^?%#@~!]/,
+	// In Elm, nearly everything is a variable, do not highlight these.
+	hvariable: /\b(?:[A-Z]\w*\.)*[a-z]\w*\b/,
+	constant: /\b(?:[A-Z]\w*\.)*[A-Z]\w*\b/,
+	punctuation: /[{}[\]|(),.:]/
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/prismjs/components/prism-erlang.js":
 /*!*********************************************************!*\
   !*** ./node_modules/prismjs/components/prism-erlang.js ***!
@@ -92575,81 +92630,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prismjs_components_prism_cpp__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_cpp__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var prismjs_components_prism_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prismjs/components/prism-css */ "./node_modules/prismjs/components/prism-css.js");
 /* harmony import */ var prismjs_components_prism_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prismjs/components/prism-javascript */ "./node_modules/prismjs/components/prism-javascript.js");
-/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var prismjs_components_prism_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prismjs/components/prism-jsx */ "./node_modules/prismjs/components/prism-jsx.js");
-/* harmony import */ var prismjs_components_prism_jsx__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_jsx__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var prismjs_components_prism_coffeescript__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prismjs/components/prism-coffeescript */ "./node_modules/prismjs/components/prism-coffeescript.js");
-/* harmony import */ var prismjs_components_prism_coffeescript__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_coffeescript__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var prismjs_components_prism_actionscript__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prismjs/components/prism-actionscript */ "./node_modules/prismjs/components/prism-actionscript.js");
-/* harmony import */ var prismjs_components_prism_actionscript__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_actionscript__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var prismjs_components_prism_css_extras__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prismjs/components/prism-css-extras */ "./node_modules/prismjs/components/prism-css-extras.js");
-/* harmony import */ var prismjs_components_prism_css_extras__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_css_extras__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var prismjs_components_prism_diff__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prismjs/components/prism-diff */ "./node_modules/prismjs/components/prism-diff.js");
-/* harmony import */ var prismjs_components_prism_diff__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_diff__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var prismjs_components_prism_docker__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prismjs/components/prism-docker */ "./node_modules/prismjs/components/prism-docker.js");
-/* harmony import */ var prismjs_components_prism_docker__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_docker__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var prismjs_components_prism_elixir__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! prismjs/components/prism-elixir */ "./node_modules/prismjs/components/prism-elixir.js");
-/* harmony import */ var prismjs_components_prism_elixir__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_elixir__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var prismjs_components_prism_erlang__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! prismjs/components/prism-erlang */ "./node_modules/prismjs/components/prism-erlang.js");
-/* harmony import */ var prismjs_components_prism_erlang__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_erlang__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var prismjs_components_prism_git__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! prismjs/components/prism-git */ "./node_modules/prismjs/components/prism-git.js");
-/* harmony import */ var prismjs_components_prism_git__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_git__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! prismjs/components/prism-go */ "./node_modules/prismjs/components/prism-go.js");
-/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var prismjs_components_prism_graphql__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! prismjs/components/prism-graphql */ "./node_modules/prismjs/components/prism-graphql.js");
-/* harmony import */ var prismjs_components_prism_graphql__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_graphql__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var prismjs_components_prism_handlebars__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! prismjs/components/prism-handlebars */ "./node_modules/prismjs/components/prism-handlebars.js");
-/* harmony import */ var prismjs_components_prism_handlebars__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_handlebars__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var prismjs_components_prism_haskell__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! prismjs/components/prism-haskell */ "./node_modules/prismjs/components/prism-haskell.js");
-/* harmony import */ var prismjs_components_prism_haskell__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_haskell__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var prismjs_components_prism_java__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! prismjs/components/prism-java */ "./node_modules/prismjs/components/prism-java.js");
-/* harmony import */ var prismjs_components_prism_java__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_java__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var prismjs_components_prism_json__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! prismjs/components/prism-json */ "./node_modules/prismjs/components/prism-json.js");
-/* harmony import */ var prismjs_components_prism_json__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_json__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var prismjs_components_prism_latex__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! prismjs/components/prism-latex */ "./node_modules/prismjs/components/prism-latex.js");
-/* harmony import */ var prismjs_components_prism_latex__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_latex__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var prismjs_components_prism_less__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! prismjs/components/prism-less */ "./node_modules/prismjs/components/prism-less.js");
-/* harmony import */ var prismjs_components_prism_less__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_less__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var prismjs_components_prism_makefile__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! prismjs/components/prism-makefile */ "./node_modules/prismjs/components/prism-makefile.js");
-/* harmony import */ var prismjs_components_prism_makefile__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_makefile__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var prismjs_components_prism_markdown__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! prismjs/components/prism-markdown */ "./node_modules/prismjs/components/prism-markdown.js");
-/* harmony import */ var prismjs_components_prism_markdown__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_markdown__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var prismjs_components_prism_objectivec__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! prismjs/components/prism-objectivec */ "./node_modules/prismjs/components/prism-objectivec.js");
-/* harmony import */ var prismjs_components_prism_objectivec__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_objectivec__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var prismjs_components_prism_ocaml__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! prismjs/components/prism-ocaml */ "./node_modules/prismjs/components/prism-ocaml.js");
-/* harmony import */ var prismjs_components_prism_ocaml__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_ocaml__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! prismjs/components/prism-php */ "./node_modules/prismjs/components/prism-php.js");
-/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var prismjs_components_prism_php_extras__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! prismjs/components/prism-php-extras */ "./node_modules/prismjs/components/prism-php-extras.js");
-/* harmony import */ var prismjs_components_prism_php_extras__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php_extras__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! prismjs/components/prism-python */ "./node_modules/prismjs/components/prism-python.js");
-/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var prismjs_components_prism_reason__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! prismjs/components/prism-reason */ "./node_modules/prismjs/components/prism-reason.js");
-/* harmony import */ var prismjs_components_prism_reason__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_reason__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var prismjs_components_prism_ruby__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! prismjs/components/prism-ruby */ "./node_modules/prismjs/components/prism-ruby.js");
-/* harmony import */ var prismjs_components_prism_ruby__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_ruby__WEBPACK_IMPORTED_MODULE_32__);
-/* harmony import */ var prismjs_components_prism_rust__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! prismjs/components/prism-rust */ "./node_modules/prismjs/components/prism-rust.js");
-/* harmony import */ var prismjs_components_prism_rust__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_rust__WEBPACK_IMPORTED_MODULE_33__);
-/* harmony import */ var prismjs_components_prism_sass__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! prismjs/components/prism-sass */ "./node_modules/prismjs/components/prism-sass.js");
-/* harmony import */ var prismjs_components_prism_sass__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_sass__WEBPACK_IMPORTED_MODULE_34__);
-/* harmony import */ var prismjs_components_prism_scss__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! prismjs/components/prism-scss */ "./node_modules/prismjs/components/prism-scss.js");
-/* harmony import */ var prismjs_components_prism_scss__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_scss__WEBPACK_IMPORTED_MODULE_35__);
-/* harmony import */ var prismjs_components_prism_sql__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! prismjs/components/prism-sql */ "./node_modules/prismjs/components/prism-sql.js");
-/* harmony import */ var prismjs_components_prism_sql__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_sql__WEBPACK_IMPORTED_MODULE_36__);
-/* harmony import */ var prismjs_components_prism_stylus__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! prismjs/components/prism-stylus */ "./node_modules/prismjs/components/prism-stylus.js");
-/* harmony import */ var prismjs_components_prism_stylus__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_stylus__WEBPACK_IMPORTED_MODULE_37__);
-/* harmony import */ var prismjs_components_prism_swift__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! prismjs/components/prism-swift */ "./node_modules/prismjs/components/prism-swift.js");
-/* harmony import */ var prismjs_components_prism_swift__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_swift__WEBPACK_IMPORTED_MODULE_38__);
-/* harmony import */ var prismjs_components_prism_typescript__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! prismjs/components/prism-typescript */ "./node_modules/prismjs/components/prism-typescript.js");
-/* harmony import */ var prismjs_components_prism_typescript__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_typescript__WEBPACK_IMPORTED_MODULE_39__);
-/* harmony import */ var prismjs_components_prism_vim__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! prismjs/components/prism-vim */ "./node_modules/prismjs/components/prism-vim.js");
-/* harmony import */ var prismjs_components_prism_vim__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_vim__WEBPACK_IMPORTED_MODULE_40__);
-/* harmony import */ var prismjs_components_prism_yaml__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! prismjs/components/prism-yaml */ "./node_modules/prismjs/components/prism-yaml.js");
-/* harmony import */ var prismjs_components_prism_yaml__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_yaml__WEBPACK_IMPORTED_MODULE_41__);
+/* harmony import */ var prismjs_components_prism_elm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prismjs/components/prism-elm */ "./node_modules/prismjs/components/prism-elm.js");
+/* harmony import */ var prismjs_components_prism_elm__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_elm__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prismjs/components/prism-javascript */ "./node_modules/prismjs/components/prism-javascript.js");
+/* harmony import */ var prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_javascript__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prismjs_components_prism_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prismjs/components/prism-jsx */ "./node_modules/prismjs/components/prism-jsx.js");
+/* harmony import */ var prismjs_components_prism_jsx__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_jsx__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var prismjs_components_prism_coffeescript__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prismjs/components/prism-coffeescript */ "./node_modules/prismjs/components/prism-coffeescript.js");
+/* harmony import */ var prismjs_components_prism_coffeescript__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_coffeescript__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var prismjs_components_prism_actionscript__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prismjs/components/prism-actionscript */ "./node_modules/prismjs/components/prism-actionscript.js");
+/* harmony import */ var prismjs_components_prism_actionscript__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_actionscript__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var prismjs_components_prism_css_extras__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prismjs/components/prism-css-extras */ "./node_modules/prismjs/components/prism-css-extras.js");
+/* harmony import */ var prismjs_components_prism_css_extras__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_css_extras__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var prismjs_components_prism_diff__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prismjs/components/prism-diff */ "./node_modules/prismjs/components/prism-diff.js");
+/* harmony import */ var prismjs_components_prism_diff__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_diff__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var prismjs_components_prism_docker__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! prismjs/components/prism-docker */ "./node_modules/prismjs/components/prism-docker.js");
+/* harmony import */ var prismjs_components_prism_docker__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_docker__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var prismjs_components_prism_elixir__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! prismjs/components/prism-elixir */ "./node_modules/prismjs/components/prism-elixir.js");
+/* harmony import */ var prismjs_components_prism_elixir__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_elixir__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var prismjs_components_prism_erlang__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! prismjs/components/prism-erlang */ "./node_modules/prismjs/components/prism-erlang.js");
+/* harmony import */ var prismjs_components_prism_erlang__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_erlang__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var prismjs_components_prism_git__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! prismjs/components/prism-git */ "./node_modules/prismjs/components/prism-git.js");
+/* harmony import */ var prismjs_components_prism_git__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_git__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! prismjs/components/prism-go */ "./node_modules/prismjs/components/prism-go.js");
+/* harmony import */ var prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_go__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var prismjs_components_prism_graphql__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! prismjs/components/prism-graphql */ "./node_modules/prismjs/components/prism-graphql.js");
+/* harmony import */ var prismjs_components_prism_graphql__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_graphql__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var prismjs_components_prism_handlebars__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! prismjs/components/prism-handlebars */ "./node_modules/prismjs/components/prism-handlebars.js");
+/* harmony import */ var prismjs_components_prism_handlebars__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_handlebars__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var prismjs_components_prism_haskell__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! prismjs/components/prism-haskell */ "./node_modules/prismjs/components/prism-haskell.js");
+/* harmony import */ var prismjs_components_prism_haskell__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_haskell__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var prismjs_components_prism_java__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! prismjs/components/prism-java */ "./node_modules/prismjs/components/prism-java.js");
+/* harmony import */ var prismjs_components_prism_java__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_java__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var prismjs_components_prism_json__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! prismjs/components/prism-json */ "./node_modules/prismjs/components/prism-json.js");
+/* harmony import */ var prismjs_components_prism_json__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_json__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var prismjs_components_prism_latex__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! prismjs/components/prism-latex */ "./node_modules/prismjs/components/prism-latex.js");
+/* harmony import */ var prismjs_components_prism_latex__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_latex__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var prismjs_components_prism_less__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! prismjs/components/prism-less */ "./node_modules/prismjs/components/prism-less.js");
+/* harmony import */ var prismjs_components_prism_less__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_less__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var prismjs_components_prism_makefile__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! prismjs/components/prism-makefile */ "./node_modules/prismjs/components/prism-makefile.js");
+/* harmony import */ var prismjs_components_prism_makefile__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_makefile__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var prismjs_components_prism_markdown__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! prismjs/components/prism-markdown */ "./node_modules/prismjs/components/prism-markdown.js");
+/* harmony import */ var prismjs_components_prism_markdown__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_markdown__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var prismjs_components_prism_objectivec__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! prismjs/components/prism-objectivec */ "./node_modules/prismjs/components/prism-objectivec.js");
+/* harmony import */ var prismjs_components_prism_objectivec__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_objectivec__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var prismjs_components_prism_ocaml__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! prismjs/components/prism-ocaml */ "./node_modules/prismjs/components/prism-ocaml.js");
+/* harmony import */ var prismjs_components_prism_ocaml__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_ocaml__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! prismjs/components/prism-php */ "./node_modules/prismjs/components/prism-php.js");
+/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var prismjs_components_prism_php_extras__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! prismjs/components/prism-php-extras */ "./node_modules/prismjs/components/prism-php-extras.js");
+/* harmony import */ var prismjs_components_prism_php_extras__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php_extras__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! prismjs/components/prism-python */ "./node_modules/prismjs/components/prism-python.js");
+/* harmony import */ var prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_python__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var prismjs_components_prism_reason__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! prismjs/components/prism-reason */ "./node_modules/prismjs/components/prism-reason.js");
+/* harmony import */ var prismjs_components_prism_reason__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_reason__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var prismjs_components_prism_ruby__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! prismjs/components/prism-ruby */ "./node_modules/prismjs/components/prism-ruby.js");
+/* harmony import */ var prismjs_components_prism_ruby__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_ruby__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var prismjs_components_prism_rust__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! prismjs/components/prism-rust */ "./node_modules/prismjs/components/prism-rust.js");
+/* harmony import */ var prismjs_components_prism_rust__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_rust__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var prismjs_components_prism_sass__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! prismjs/components/prism-sass */ "./node_modules/prismjs/components/prism-sass.js");
+/* harmony import */ var prismjs_components_prism_sass__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_sass__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var prismjs_components_prism_scss__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! prismjs/components/prism-scss */ "./node_modules/prismjs/components/prism-scss.js");
+/* harmony import */ var prismjs_components_prism_scss__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_scss__WEBPACK_IMPORTED_MODULE_36__);
+/* harmony import */ var prismjs_components_prism_sql__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! prismjs/components/prism-sql */ "./node_modules/prismjs/components/prism-sql.js");
+/* harmony import */ var prismjs_components_prism_sql__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_sql__WEBPACK_IMPORTED_MODULE_37__);
+/* harmony import */ var prismjs_components_prism_stylus__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! prismjs/components/prism-stylus */ "./node_modules/prismjs/components/prism-stylus.js");
+/* harmony import */ var prismjs_components_prism_stylus__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_stylus__WEBPACK_IMPORTED_MODULE_38__);
+/* harmony import */ var prismjs_components_prism_swift__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! prismjs/components/prism-swift */ "./node_modules/prismjs/components/prism-swift.js");
+/* harmony import */ var prismjs_components_prism_swift__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_swift__WEBPACK_IMPORTED_MODULE_39__);
+/* harmony import */ var prismjs_components_prism_typescript__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! prismjs/components/prism-typescript */ "./node_modules/prismjs/components/prism-typescript.js");
+/* harmony import */ var prismjs_components_prism_typescript__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_typescript__WEBPACK_IMPORTED_MODULE_40__);
+/* harmony import */ var prismjs_components_prism_vim__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! prismjs/components/prism-vim */ "./node_modules/prismjs/components/prism-vim.js");
+/* harmony import */ var prismjs_components_prism_vim__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_vim__WEBPACK_IMPORTED_MODULE_41__);
+/* harmony import */ var prismjs_components_prism_yaml__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! prismjs/components/prism-yaml */ "./node_modules/prismjs/components/prism-yaml.js");
+/* harmony import */ var prismjs_components_prism_yaml__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_yaml__WEBPACK_IMPORTED_MODULE_42__);
  // NOTE: This includes a "slim" list of some components of prism, but not all
 // For more, see: https://github.com/PrismJS/prism/blob/1fd690dd8a652dee375acb78b6034c3fc2db687c/components.js
 // and: https://github.com/PrismJS/prism/tree/gh-pages/components
+
 
 
 
